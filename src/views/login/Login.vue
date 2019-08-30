@@ -20,6 +20,7 @@
 
 <script lang='ts'>
 import { Vue, Component } from 'vue-property-decorator';
+import { LOGIN } from '@api/user';
 @Component({
   name: 'Login',
 })
@@ -45,6 +46,20 @@ export default class Login extends Vue {
     this.formRef = this.$refs.form;
     const isValid = await this.formRef.validate();
     // console.log('isValid', isValid);
+    if (!isValid) {
+      return;
+    }
+    try {
+      await LOGIN({
+        username: '',
+        password: '',
+        grant_type: 'password',
+        remember: false,
+      });
+      this.$router.push('/');
+    } catch (error) {
+      // console.log(error);
+    }
   }
 }
 </script>

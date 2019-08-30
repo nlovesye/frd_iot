@@ -18,7 +18,10 @@
     "paths": {
       "@/*": [
         "src/*"
-      ]
+      ],
+      "_api/*": ["src/api/*"],
+      "_lib/*": ["src/libs/*"],
+      "@c/*": ["src/components/*"],
     },
     "lib": [
       "esnext",
@@ -32,7 +35,9 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "tests/**/*.tsx",
+    "src/**/**/*.vue",
+    "src/**/**/*.ts"
   ],
   "exclude": [
     "node_modules"
